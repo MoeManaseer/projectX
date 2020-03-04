@@ -26,6 +26,10 @@
     <div>
       <%= f.label :email,"Email",class: "p-1" %> <br>
       <%= f.email_field :email, placeholder: "email..", class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :country,"Country",class: "p-1" %> <br>
+      <%= f.collection_select  :country,Country.order(:name),:id,:name,include_blank: true%>
     </div>
   </div>
   <br>

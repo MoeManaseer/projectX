@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_133059) do
+ActiveRecord::Schema.define(version: 2020_03_04_152851) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "alpha"
+    t.string "code"
+  end
 
   create_table "submissions", force: :cascade do |t|
     t.string "code"
@@ -28,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_133059) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "fullname"
+    t.string "country"
   end
 
 end
