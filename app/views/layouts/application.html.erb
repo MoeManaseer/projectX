@@ -13,9 +13,11 @@
     <%= render 'layouts/navbar'%>
     </br>
     <% flash.each do |name,msg| %>
+    <div class="alert alert-dark" role="alert">
       <ul>
         <li> <%= msg %> </li>
       </ul>
+      </div>
     <%end%>
     <div class = "container">
       <%= yield %>

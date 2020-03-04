@@ -1,1 +1,34 @@
-<h1> showing current user </h1>
+<div class="d-flex justify-content-center">
+<h2> Your profile </h2>
+</div>
+<div class="form-group">
+    <div>
+      <label class = "p-1"> Username </label><br>
+      <div class="card">
+        <div class="card-body">
+          <%= @user.username %>
+        </div>
+      </div>
+    </div> <br>
+    <div>
+      <label class = "p-1"> Full name </label><br>
+      <div class="card">
+        <div class="card-body">
+          <%= @user.fullname %>
+        </div>
+      </div>
+    </div> <br>
+    <div>
+      <label class = "p-1"> Email </label><br>
+      <div class="card">
+        <div class="card-body">
+          <%= @user.email %>
+        </div>
+      </div>
+    </div>
+</div>
+<br> <br>
+<div class="d-flex justify-content-center">
+<%= link_to "Delete account", user_path(current_user),method: :delete,class:"nav-link" %>
+<%= link_to "Edit account", edit_user_path(current_user),class:"nav-link" %>
+</div>

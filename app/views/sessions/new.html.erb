@@ -1,1 +1,18 @@
-<h1> log in </h1>
+<div class="d-flex justify-content-center">
+<h1> Log in </h1>
+</div>
+
+<%= form_for(:session,url:login_path) do |f| %>
+  <div class="form-group">
+    <div>
+      <%= f.label :username,"Username" , class: "p-1"%> <br>
+      <%= f.text_field :username, placeholder: "Username",class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :password,"Password",class: "p-1" %> <br>
+      <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+    </div>
+  </div>
+  <br>
+  <%= f.button "Login", class: "btn btn-lg", style: "background-color: #e83c3c;color: white;" %>
+<%end%>

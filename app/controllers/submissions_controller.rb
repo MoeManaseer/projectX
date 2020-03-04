@@ -14,7 +14,9 @@ class SubmissionsController < ApplicationController
   def destroy
 
   end
+  def userSub
 
+  end
   private
   def submission_params
 

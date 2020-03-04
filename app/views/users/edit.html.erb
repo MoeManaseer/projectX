@@ -1,1 +1,29 @@
-<h1> edit account </h1>
+<div class="d-flex justify-content-center">
+<h1> Edit account </h1>
+</div>
+<% if @user.errors.any? %>
+<h2> The following errors occured:- </h2>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li> <%= msg %> </li>
+  <%end%>
+</ul>
+<%end%>
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <div>
+      <%= f.label :username,"Username" , class: "p-1"%> <br>
+      <%= f.text_field :username, placeholder: "Username..",class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :fullname,"Full name",class: "p-1" %> <br>
+      <%= f.text_field :fullname, placeholder: "Your name..", class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :email,"Email",class: "p-1" %> <br>
+      <%= f.email_field :email, placeholder: "email..", class: "form-control" %>
+    </div>
+  </div>
+  <br>
+  <%= f.submit "Edit account", class: "btn btn-lg ", style: "background-color: #e83c3c;color: white;" %>
+<%end%>
