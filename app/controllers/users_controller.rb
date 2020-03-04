@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
   private
   def post_params
-    params.require(:user).permit(:username,:password,:email,:fullname)
+    params.require(:user).permit(:username,:password,:email,:fullname,:country,:image)
   end
   def set_user
     @user = User.find(params[:id])

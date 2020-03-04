@@ -9,6 +9,11 @@
   <%end%>
 </ul>
 <%end%>
+<br>
+<div class="d-flex justify-content-center">
+<%= image_tag(@user.image,:size => "150x150", class: "rounded-circle") %>
+</div>
+
 <%= form_for @user do |f| %>
   <div class="form-group">
     <div>
@@ -22,6 +27,14 @@
     <div>
       <%= f.label :email,"Email",class: "p-1" %> <br>
       <%= f.email_field :email, placeholder: "email..", class: "form-control" %>
+    </div>
+    <div>
+      <%= f.label :country,"Country",class: "p-1" %> <br>
+      <%= f.collection_select  :country,Country.order(:name),:id,:name,include_blank: true%>
+    </div> <br>
+    <div>
+      <%= f.label :image,class: "p-1" %> <br>
+      <%= f.file_field  :image%>
     </div>
   </div>
   <br>

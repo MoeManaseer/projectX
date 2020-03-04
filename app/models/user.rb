@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :country, presence:true
   has_secure_password
   has_many :submissions
+  has_one_attached :image
 end

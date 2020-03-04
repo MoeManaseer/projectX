@@ -30,6 +30,10 @@
     <div>
       <%= f.label :country,"Country",class: "p-1" %> <br>
       <%= f.collection_select  :country,Country.order(:name),:id,:name,include_blank: true%>
+    </div> <br>
+    <div>
+      <%= f.label :image,class: "p-1" %> <br>
+      <%= f.file_field  :image%>
     </div>
   </div>
   <br>

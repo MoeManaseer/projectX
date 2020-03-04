@@ -1,6 +1,10 @@
 <div class="d-flex justify-content-center">
 <h2> Your profile </h2>
 </div>
+<br>
+<div class="d-flex justify-content-center">
+<%= image_tag(@user.image,:size => "150x150", class: "rounded-circle") %>
+</div>
 <div class="form-group">
     <div>
       <label class = "p-1"> Username </label><br>
@@ -23,6 +27,14 @@
       <div class="card">
         <div class="card-body">
           <%= @user.email %>
+        </div>
+      </div>
+    </div> <br>
+    <div>
+      <label class = "p-1"> Country </label><br>
+      <div class="card">
+        <div class="card-body">
+          <%= Country.find(@user.country).name%>
         </div>
       </div>
     </div>
