@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light"style="background-color: #e83c3c;">
+<nav class="navbar navbar-expand-sm navbar-light"style="background-color: #e83c3c;">
   <div class = "container">
     <ul class="navbar-nav mr-auto">
     <%= link_to "RubyCode", root_path,class:"nav-link" %>
@@ -8,9 +8,11 @@
         <li class="nav-item">
           <%= link_to "Submissions", root_path,class:"nav-link" %>
         </li>
+        <% if logged_in? %>
         <li class="nav-item">
           <%= link_to "My submissions", userSub_path,class:"nav-link" %>
         </li>
+        <%end%>
       </ul>
       <ul class="nav navbar-nav ml-auto">
         <% if logged_in? %>
