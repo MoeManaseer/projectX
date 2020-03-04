@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class = "container">
+    <ul class="navbar-nav mr-auto">
+    <%= link_to "RubyCode", root_path,class:"nav-link" %>
+    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Submissions", root_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My submissions", userSub_path,class:"nav-link" %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <% if logged_in? %>
+        <li>
+          <%= link_to "My account", user_path,class:"nav-link" %>
+        </li>
+        <li>
+          <%= link_to "Log out", logout_path,class:"nav-link" %>
+        </li>
+        <%else%>
+        <li>
+          <%= link_to "Log in", login_path,class:"nav-link" %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_user_path,class:"nav-link" %>
+        </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
