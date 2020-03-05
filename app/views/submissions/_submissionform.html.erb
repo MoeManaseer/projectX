@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center">
+  <% if @submissions.any? %>
+  <table class="table">
+    <thead class ="thead">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td scope="row"> <%= submission.id %> </td>
+        <td> <%= submission.user.username %> </td>
+        <td> <%= submission.status %> </td>
+        <td> <%= submission.updated_at %> </td>
+        <td> <%= link_to "View", submission_path(submission),class:"td" %> </td>
+        <% if current_user.id == submission.user_id %>
+          <td> <%= link_to "Delete", submission_path(submission),method: :delete,class:"td" %>
+        <%end%>
+      </tr>
+    <%end%>
+  </table>
+    <%else%>
+
+    <%end%>
+</div>

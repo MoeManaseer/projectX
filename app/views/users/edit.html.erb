@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-<h1> Edit account </h1>
+<h2> Edit account </h2>
 </div>
 <% if @user.errors.any? %>
 <h2> The following errors occured:- </h2>
@@ -27,7 +27,7 @@
     <div>
       <%= f.label :email,"Email",class: "p-1" %> <br>
       <%= f.email_field :email, placeholder: "email..", class: "form-control" %>
-    </div>
+    </div> <br>
     <div>
       <%= f.label :country,"Country",class: "p-1" %> <br>
       <%= f.collection_select  :country,Country.order(:name),:id,:name,include_blank: true%>
