@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_154604) do
+ActiveRecord::Schema.define(version: 2020_03_05_141007) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -33,6 +36,14 @@ ActiveRecord::Schema.define(version: 2020_03_04_154604) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "codes", force: :cascade do |t|
+    t.string "info"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "alpha"
@@ -40,12 +51,13 @@ ActiveRecord::Schema.define(version: 2020_03_04_154604) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.string "code"
-    t.string "output"
-    t.string "status"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "code_id"
+    t.string "input"
+    t.string "output"
+    t.string "status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +70,5 @@ ActiveRecord::Schema.define(version: 2020_03_04_154604) do
     t.string "country"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end
