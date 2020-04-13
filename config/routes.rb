@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'userSub', to: 'submissions#userSub'
   get 'userCode', to: 'codes#userCode'
+  post 'submit', to: 'api#submit'
   resources :submissions
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
