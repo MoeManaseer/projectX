@@ -1,0 +1,29 @@
+<% if @submissions.count!=0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">codeID</th>
+        <th scope="col">User</th>
+        <th scope="col">status</th>
+        <th scope="col">output</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @submissions.each do |submission| %>
+        <tr>
+          <td scope="col"> <%= submission.user_id %> </td>
+          <td> <%= submission.code_id %> </td>
+          <td> <%= User.find(submission.user_id).fullname %> </td>
+          <td> <%= submission.status %> </td>
+          <td> <%= submission.output %> </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+<%else%>
+  <div class = "d-flex justify-content-center">
+    <h2> There isn't any submissions yet.</h2>
+  </div>
+<%end%>

@@ -1,0 +1,34 @@
+<% if @codes.count!=0 %>
+  <div class = "d-flex justify-content-center">
+    <h2> your codes:-  </h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">No. submissions</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @codes.each do |code| %>
+        <tr>
+          <td scope="col"> <%= code.user_id %> </td>
+          <td> <%= current_user.fullname %> </td>
+          <td> <%= code.submissions.count %> </td>
+          <td> <%= link_to "Edit", code_path() %></td>
+          <td> <%= link_to "Delete", code_path() %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+<%else%>
+  <div class = "d-flex justify-content-center">
+    <h2> You dont have any codes created </h2>
+  </div>
+<%end%>
+<div class = "d-flex justify-content-center">
+  <%= link_to "create new code", code_path(),class:"btn btn-dark" %>
+</div>

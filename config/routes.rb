@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'userSub', to: 'submissions#userSub'
   get 'userCode', to: 'codes#userCode'
   post 'submit', to: 'api#submit'
+  get 'code', to: 'codes#new'
+  post 'code', to: 'codes#create'
   resources :submissions
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

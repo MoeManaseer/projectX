@@ -21,16 +21,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def destroy
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    @submissions = @user.submissions
+    @codes = @user.codes
+    @submissions.destroy
+    @codes.destroy
     @user.destroy
     session[:user_id]= nil;
     redirect_to root_path
   end
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update(post_params)
       flash[:notice] = "User was successfully updated"
       redirect_to user_path(@user)
@@ -58,4 +62,5 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
 end
