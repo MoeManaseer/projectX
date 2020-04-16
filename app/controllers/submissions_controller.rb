@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
   end
   def create
     @params = {input: post_params[:input], user_id: current_user.id, code_id: post_params[:id]}
-    @submssion = Submission.new(@params)
+    @submission = Submission.new(@params)
     logger.error { Submission.new }
     logger.error { @submission  }
     logger.error { "submission" }
