@@ -1,1 +1,19 @@
-<h1>new submission</h1>
+<div class = "d-flex justify-content-center">
+<h2>Add new submission</h2>
+</div>
+<%= form_for(:submission,url:submissions_path) do |f| %>
+  <div class="form-group">
+    <div>
+      <%= f.label :id,"Code id" , class: "p-1"%> <br>
+      <%= f.text_field :id, placeholder: "Code id..",class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :input,"input",class: "p-1" %> <br>
+      <%= f.text_area :input, class: "form-control" %>
+    </div> <br>
+  </div>
+  <br>
+  <div class = "d-flex justify-content-center">
+  <%= f.button "Submit", class: "btn btn-lg ", style: "background-color: #e83c3c;color: white;" %>
+  </div>
+<%end%>

@@ -9,6 +9,7 @@ class CodesController < ApplicationController
   end
   def create
     @code = Code.new(post_params)
+    @code.user_id = current_user.id
     if @code.save
       redirect_to userCode_path
     else
@@ -35,6 +36,6 @@ class CodesController < ApplicationController
     end
   end
   def post_params
-    params.require(:user).permit(:info,:name)
+    params.require(:code).permit(:info,:name)
   end
 end

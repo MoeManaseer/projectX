@@ -7,7 +7,7 @@ class ApiController < ApplicationController
     else
       code = Code.find(params[:id])
       submission = execute(code.info,params[:input])
-      render json: submission[:output], status: :ok
+      render json: {output: submission[:output], status: submission[:status]}, status: :ok
     end
   end
 end

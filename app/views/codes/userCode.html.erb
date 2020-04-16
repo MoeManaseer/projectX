@@ -15,7 +15,7 @@
     <tbody>
       <% @codes.each do |code| %>
         <tr>
-          <td scope="col"> <%= code.user_id %> </td>
+          <td scope="col"> <%= code.id %> </td>
           <td> <%= current_user.fullname %> </td>
           <td> <%= code.submissions.count %> </td>
           <td> <%= link_to "Edit", code_path() %></td>

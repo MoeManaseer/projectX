@@ -8,7 +8,12 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new
   end
   def create
-    @submssion = Submission.new(post_params)
+    @params = {input: post_params[:input], user_id: current_user.id, code_id: post_params[:id]}
+    @submssion = Submission.new(@params)
+    logger.error { Submission.new }
+    logger.error { @submission  }
+    logger.error { "submission" }
+    logger.error { @params }
     if @submission.save
       redirect_to userSub_path
     else
@@ -30,6 +35,6 @@ class SubmissionsController < ApplicationController
     end
   end
   def post_params
-    params.require(:user).permit(:input,:code_id)
+    params.require(:submission).permit(:input,:id)
   end
 end

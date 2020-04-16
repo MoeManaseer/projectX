@@ -1,1 +1,19 @@
-<h1> create new code </h1>
+<div class = "d-flex justify-content-center">
+<h2> create new code </h2>
+</div>
+<%= form_for(:code,url:code_path) do |f| %>
+  <div class="form-group">
+    <div>
+      <%= f.label :name,"Code name" , class: "p-1"%> <br>
+      <%= f.text_field :name, placeholder: "Name..",class: "form-control" %>
+    </div> <br>
+    <div>
+      <%= f.label :info,"Code",class: "p-1" %> <br>
+      <%= f.text_area :info, class: "form-control" %>
+    </div> <br>
+  </div>
+  <br>
+  <div class = "d-flex justify-content-center">
+  <%= f.button "Create", class: "btn btn-lg ", style: "background-color: #e83c3c;color: white;" %>
+  </div>
+<%end%>
