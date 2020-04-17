@@ -1,5 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :user_logged_in, only: [:userSub]
+  include ExecuteHelper
+
   def userSub
     @user = User.find(current_user.id)
     @submissions = @user.submissions
@@ -8,12 +10,10 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new
   end
   def create
-    @params = {input: post_params[:input], user_id: current_user.id, code_id: post_params[:id]}
+    code = Code.find(post_params[:id])
+    submission = execute(code.info,post_params[:input])
+    @params = {input: post_params[:input], user_id: current_user.id, code_id: post_params[:id],output: submission[:output],status: submission[:status]}
     @submission = Submission.new(@params)
-    logger.error { Submission.new }
-    logger.error { @submission  }
-    logger.error { "submission" }
-    logger.error { @params }
     if @submission.save
       redirect_to userSub_path
     else

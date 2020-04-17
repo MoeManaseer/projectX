@@ -23,6 +23,7 @@ module ExecuteHelper
     if exit_code.exitstatus == 0
       submission[:status] = "success"
       submission[:output] = out
+
     elsif exit_code.exitstatus ==124
       submission[:status] = "Time Limit Exceeded"
     else

@@ -4,6 +4,8 @@ class ApiController < ApplicationController
   def submit
       code = Code.find(params[:id])
       submission = execute(code.info,params[:input])
+      @testsub = Testsub.new(code_id: code.id, input: params[:input], output: submission[:output])
+      @testsub.save
       render json: submission[:output], status: :ok
   end
 end

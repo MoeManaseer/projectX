@@ -16,7 +16,7 @@
     <tbody>
       <% @submissions.each do |submission| %>
         <tr>
-          <td scope="col"> <%= submission.user_id %> </td>
+          <td scope="col"> <%= submission.id %> </td>
           <td> <%= submission.code_id %> </td>
           <td> <%= current_user.fullname %> </td>
           <td> <%= submission.status %> </td>
